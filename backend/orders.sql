@@ -1,0 +1,1 @@
+CREATE TABLE orders (orderid INT, sushia INT, sushib INT, time VARCHAR(100), total INT, price FLOAT, discountedprice FLOAT);
