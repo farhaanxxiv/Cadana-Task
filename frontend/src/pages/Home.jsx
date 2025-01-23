@@ -11,11 +11,6 @@ export default function Home() {
     const [price, setPrice] = useState(0);
     const [discountedPrice, setDiscountedPrice] = useState(0);
 
-    useEffect(() => {
-        setTotal(sushiA + sushiB);
-        calculatePrice();
-    }, [sushiA, sushiB]);
-
     function isLunchTime() {
         const now = new Date();
         const currentHour = now.getHours();
@@ -28,14 +23,14 @@ export default function Home() {
 
         let newTotal = sushiA + sushiB;
         let discount = 0;
-        
-//for 20+ and 10+ orders
+
+        //for 20+ and 10+ orders
         if (newTotal > 20) {
             discount = pr * 0.20;
         } else if (newTotal > 10) {
             discount = pr * 0.10;
         }
-//for lunch time discount
+        //for lunch time discount
         if (isLunchTime()) {
             discount += pr * 0.20;
         }
@@ -72,8 +67,13 @@ export default function Home() {
 
     }
 
+    useEffect(() => {
+        setTotal(sushiA + sushiB);
+        calculatePrice();
+    }, [sushiA, sushiB]);
+
     return (
-        <section style={{userSelect:'none'}}>
+        <section style={{ userSelect: 'none' }}>
 
             <Link className="w-fit ml-auto block" to='/susans-kitchen'>
                 <button className="w-fit ml-auto block bg-white text-black p-4 py-1 rounded-xl mt-12 font-semibold">Susan's Kitchen</button>
@@ -83,7 +83,7 @@ export default function Home() {
 
             <div className="grid grid-cols-2 mt-24">
                 <div>
-                    <img className="w-[70%] rounded-3xl mx-auto block" src="https://images.jdmagicbox.com/quickquotes/listicle/listicle_1696928641763_u06xl_4608x3072.jpg" alt="" />
+                    <img className="w-[70%] rounded-3xl mx-auto block" src="/images/sushi-a.webp" alt="" />
                     <h3 className="font-semibold text-center mt-8 text-2xl">Sushi A</h3>
                     <p className="font-bold text-center text-xl my-auto mt-3">3£</p>
 
@@ -94,7 +94,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div>
-                    <img className="w-[70%] rounded-3xl mx-auto block" src="https://cdn.britannica.com/52/128652-050-14AD19CA/Maki-zushi.jpg" alt="" />
+                    <img className="w-[70%] rounded-3xl mx-auto block" src="/images/sushi-b.webp" alt="" />
                     <h3 className="font-semibold text-center mt-8 text-2xl">Sushi B</h3>
                     <p className="font-bold text-center text-xl my-auto mt-3">4£</p>
 

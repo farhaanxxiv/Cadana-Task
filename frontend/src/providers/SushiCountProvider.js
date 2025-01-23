@@ -1,7 +1,7 @@
 import { useState, useContext, createContext } from 'react';
 
 // Step 1: Create a Context
-const SushiCountContext = createContext("light", () => "light");
+const SushiCountContext = createContext();
 
 // Step 2: Create a Provider Component
 const SushiCountProvider = ({ children }) => {
